@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static  %}
+<html>
+    <head>
+        <title>Django Blog</title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap-5.2.2-dist/css/bootstrap.min.css' %}">
+    </head>
+     <body class="container" align="center">
+{% block content %}
+    <h2 style="color:white"> sign up</h2>
+    <form method="post">            
+        {%csrf_token %}
+        {{form.as_p}}
+        <button type="submit">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>sign up</button>
+    </form>
+    <script src="{% static 'bootstrap-5.2.2-dist/js/bootstrap.min.js'%}"></script>
+        </body>
+</html>
+
+{% endblock content %}

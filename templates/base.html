@@ -1,0 +1,55 @@
+{% load static  %}
+<html>
+    <head>
+        <title>Django Blog</title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap-5.2.2-dist/css/bootstrap.min.css' %}">
+    </head>
+    <body class="container" align="center">
+        <header>
+             {% if user.is_authenticated%}
+                 <p style="color:white">hola {{user.username}}!</p>
+                 <button >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                 <p ><a style="color:white"href="{% url 'logout' %}"> logout</a></p>
+                 </button>
+             {% else %}
+             <div >
+                <p style="color:white">Usuario no ha iniciado sesion</p>
+            </div>
+                <div align="center">
+                  <button id="login">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                     <a style="color:white" href="{% url 'login' %}" > Login</a>
+                  </button>
+                </div>
+                <br>
+                <div align="center">
+                <button id="signup">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                <a style="color:white" href="{% url 'signup' %}"> Sign Up</a>
+            </button>
+        </div>
+        <div class="container">
+             {% endif %}
+             <h1><a style="color:white" href="{%url 'home' %}">Django Blog</a></h1>
+        </div>
+        </header>
+        <div align="center">
+            {% block content%}
+            {% endblock content%}
+           
+        </div>
+        <script src="{% static 'bootstrap-5.2.2-dist/js/bootstrap.min.js'%}"></script>
+    </body>
+</html>
